@@ -35,6 +35,8 @@
                 <li class="sidebar-list">
                     <a class="sidebar-link  {{
                         (Route::currentRouteName() === 'admin.dashboard')
+                        || (Route::currentRouteName() === 'banner.index') || (Route::currentRouteName() === 'banner.create') || (Route::currentRouteName() === 'banner.edit')
+                        || (Route::currentRouteName() === 'services.index') || (Route::currentRouteName() === 'services.create') || (Route::currentRouteName() === 'services.edit')
                         ? 'active' : '' }} sidebar-title" href="javascript:void(0)">
 
                         <span>
@@ -44,7 +46,10 @@
                     </a>
                     <ul class="sidebar-submenu">
                         <li>
-                            <a href="" class="">Banner</a>
+                            <a href="{{ route('banner.index') }}" class="{{ (Route::currentRouteName() === 'banner.index') || (Route::currentRouteName() === 'banner.create') || (Route::currentRouteName() === 'banner.edit') ? 'active' : '' }}">Banner</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('services.index') }}" class="{{ (Route::currentRouteName() === 'services.index') || (Route::currentRouteName() === 'services.create') || (Route::currentRouteName() === 'services.edit') ? 'active' : '' }}">Services</a>
                         </li>
                     </ul>
                 </li>
