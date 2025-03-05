@@ -43,9 +43,9 @@ class OurClienteleController extends Controller
             $our_clientele = new OurClientele();
 
             // Check if new image are uploaded
-            if ($request->hasFile('image')) {
+            if ($request->hasFile('clientele_image')) {
                 // Add new image to the paths array
-                foreach ($request->file('image') as $image) {
+                foreach ($request->file('clientele_image') as $image) {
                     // Generate a unique filename using time() and rand()
                     $new_name = time() . rand(10, 999) . '.' . $image->getClientOriginalExtension();
                     $image->move(public_path('/j4c_Group/our_clientele/clientele_image'), $new_name);
@@ -66,7 +66,8 @@ class OurClienteleController extends Controller
 
         } catch(\Exception $ex){
 
-            return redirect()->back()->with('error','Something Went Wrong  - '.$ex->getMessage());
+            return redirect()->back()->with('error','Something Went Wrong  - '.$ex->getMessage())
+            ->withInput($request->all());
         }
     }
 
