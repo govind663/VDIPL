@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    J4C Group | Manage Services
+    J4C Group | Manage Our Clientele
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h4>Manage Services</h4>
+                        <h4>Manage Our Clientele</h4>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -24,7 +24,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active">Manage Services</li>
+                            <li class="breadcrumb-item active">Manage Our Clientele</li>
                         </ol>
                     </div>
                 </div>
@@ -38,13 +38,13 @@
                     <div class="card">
                         <div class="d-flex justify-content-between align-items-center p-3">
                             <div class="card-header pb-0 card-no-border">
-                                <h4>All Services List</h4>
+                                <h4>All Our Clientele List</h4>
                             </div>
-                            {{-- Add Services Button --}}
-                            <a href="{{ route('services.create') }}" class="btn btn-primary">
+                            {{-- Add Our Clientele Button --}}
+                            <a href="{{ route('our-clientele.create') }}" class="btn btn-primary">
                                 <b>
                                     <i class="fa fa-plus"></i>
-                                    Services
+                                    Clientele
                                 </b>
                             </a>
                         </div>
@@ -55,33 +55,19 @@
                                     <thead>
                                         <tr>
                                             <th>Sr. No.</th>
-                                            <th>Image</th>
-                                            <th>Icon</th>
-                                            <th>Services Name</th>
+                                            <th>Clientele Name</th>
                                             <th>Status</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($services as $key => $view)
+                                        @foreach ($our_clientele as $key => $view)
                                             <tr>
                                                 <td>{{ ++$key }}</td>
-                                                
-                                                <td class="text-wrap text-justify">
-                                                    @if($view->service_image)
-                                                        <img src="{{ asset('/j4c_Group/service/service_image/' . $view->service_image) }}" alt="Banner Image" style="width: 200px; height: 100px;">
-                                                    @endif
-                                                </td>
 
                                                 <td class="text-wrap text-justify">
-                                                    @if($view->service_icon)
-                                                        <img src="{{ asset('/j4c_Group/service/service_icon/' . $view->service_icon) }}" alt="Banner Image" style="width: 80px; height: 80px;">
-                                                    @endif
-                                                </td>
-
-                                                <td class="text-wrap text-justify">
-                                                    {{ $view->service_name }}
+                                                    {{ $view->clientele_name ?? '' }}
                                                 </td>
 
                                                 <td class="text-wrap text-justify">
@@ -92,7 +78,7 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('services.edit', $view->id) }}">
+                                                    <a href="{{ route('our-clientele.edit', $view->id) }}">
                                                         <button class="btn btn-primary btn-sm">
                                                             <b>
                                                                 <i class="icon-pencil-alt"></i>
@@ -101,7 +87,7 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <form action="{{ route('services.destroy', $view->id) }}" method="post">
+                                                    <form action="{{ route('our-clientele.destroy', $view->id) }}" method="post">
                                                         @csrf
                                                         @method('DELETE')
                                                         <input name="_method" type="hidden" value="DELETE">

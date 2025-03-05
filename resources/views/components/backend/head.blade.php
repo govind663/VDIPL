@@ -26,51 +26,56 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
+<!-- Google font-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
 <!-- Font Awesome -->
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/font-awesome.css') }}" media="all">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/font-awesome.css') }}">
 
 <!-- ico-font-->
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/icofont.css') }}" media="all">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/icofont.css') }}">
 
 <!-- Themify icon-->
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/themify.css') }}" media="all">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/themify.css') }}">
 
 <!-- Flag icon-->
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/flag-icon.css') }}" media="all">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/flag-icon.css') }}">
 
 <!-- Feather icon-->
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/feather-icon.css') }}" media="all">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/feather-icon.css') }}">
 
 <!-- Plugins css start-->
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/slick.css') }}" media="all">
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/slick-theme.css') }}" media="all">
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/scrollbar.css') }}" media="all">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/slick.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/slick-theme.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/scrollbar.css') }}">
 
 <!-- Range slider css-->
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/rangeslider/rSlider.min.css') }}" media="all">
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/animate.css') }}" media="all">
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/prism.css') }}" media="all">
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/fullcalender.css') }}" media="all">
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/datatables.css') }}" media="all">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/rangeslider/rSlider.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/animate.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/prism.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/fullcalender.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/datatables.css') }}">
 <!-- Plugins css Ends-->
 
 <!-- Bootstrap css-->
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/bootstrap.css') }}" media="all">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/bootstrap.css') }}">
 
 <!-- App css-->
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/style.css') }}" media="all">
-<link id="color" rel="stylesheet" href="{{ asset('backend/assets/css/color-1.css') }}" media="all">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/style.css') }}">
+<link id="color" rel="stylesheet" href="{{ asset('backend/assets/css/color-1.css') }}" media="screen">
 
 <!-- Responsive css-->
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/responsive.css') }}" media="all">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/responsive.css') }}">
 
 <!-- Select2 -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" media="all" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
 <!-- Summernot CSS -->
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet" media="all">
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
 
 <!-- Toaster Message -->
-<script src="{{ asset('toaster/js/jquery.min.js') }}" accesskey="false"></script>
-<link rel="stylesheet" href="{{ asset('toaster/css/toastr.min.css') }}" media="all" />
-<script src="{{ asset('toaster/js/toastr.min.js') }}" accesskey="false"></script>
+<script src="{{ asset('toaster/js/jquery.min.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('toaster/css/toastr.min.css') }}" />
+<script src="{{ asset('toaster/js/toastr.min.js') }}"></script>

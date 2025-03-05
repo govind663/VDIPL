@@ -39,10 +39,13 @@
                         || (Route::currentRouteName() === 'services.index') || (Route::currentRouteName() === 'services.create') || (Route::currentRouteName() === 'services.edit')
                         ? 'active' : '' }} sidebar-title" href="javascript:void(0)">
 
-                        <span>
-                            <i class="icon-home"></i>
-                            Home
-                        </span>
+                        <svg class="stroke-icon">
+                            <use href="{{ asset('backend/assets/svg/icon-sprite.svg#stroke-home') }}"></use>
+                        </svg>
+                        <svg class="fill-icon">
+                            <use href="{{ asset('backend/assets/svg/icon-sprite.svg#fill-home') }}"></use>
+                        </svg>
+                        <span>Home</span>
                     </a>
                     <ul class="sidebar-submenu">
                         <li>
@@ -52,6 +55,34 @@
                             <a href="{{ route('services.index') }}" class="{{ (Route::currentRouteName() === 'services.index') || (Route::currentRouteName() === 'services.create') || (Route::currentRouteName() === 'services.edit') ? 'active' : '' }}">Services</a>
                         </li>
                     </ul>
+                </li>
+
+                {{-- Clientele --}}
+                <li class="sidebar-list">
+                    <i class="fa fa-thumb-tack"></i>
+                    <a class="sidebar-link sidebar-title link-nav {{ (Route::currentRouteName() === 'our-clientele.index') || (Route::currentRouteName() === 'our-clientele.create') || (Route::currentRouteName() === 'our-clientele.edit') ? 'active' : '' }}" href="{{ route('our-clientele.index') }}">
+                        <svg class="stroke-icon">
+                            <use href="{{ asset('backend/assets/svg/icon-sprite.svg#stroke-user') }}"></use>
+                        </svg>
+                        <svg class="fill-icon">
+                            <use href="{{ asset('backend/assets/svg/icon-sprite.svg#fill-user') }}"></use>
+                        </svg>
+                        <span>Clientele</span>
+                    </a>
+                </li>
+
+                {{-- Associates --}}
+                <li class="sidebar-list">
+                    <i class="fa fa-thumb-tack"></i>
+                    <a class="sidebar-link sidebar-title link-nav" href="file-manager.html">
+                        <svg class="stroke-icon">
+                            <use href="{{ asset('backend/assets/svg/icon-sprite.svg#stroke-internationalization') }}"></use>
+                        </svg>
+                        <svg class="fill-icon">
+                            <use href="{{ asset('backend/assets/svg/icon-sprite.svg#fill-internationalization') }}"></use>
+                        </svg>
+                        <span>Associates</span>
+                    </a>
                 </li>
 
             </ul>
