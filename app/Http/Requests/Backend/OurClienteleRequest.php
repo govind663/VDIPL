@@ -24,12 +24,14 @@ class OurClienteleRequest extends FormRequest
         if ($this->id){
             $rule = [
                 'clientele_name' => 'required|string|max:255',
+                'clientele_image' => 'nullable|array', // Ensure it's an array
                 'clientele_image.*' => 'nullable|mimes:jpeg,png,jpg,webp|max:2048',
                 'status' => 'required|string|max:255',
             ];
         }else{
             $rule = [
                 'clientele_name' => 'required|string|max:255',
+                'clientele_image' => 'required|array', // Ensure it's an array
                 'clientele_image.*' => 'required|mimes:jpeg,png,jpg,webp|max:2048',
                 'status' => 'required|string|max:255',
             ];

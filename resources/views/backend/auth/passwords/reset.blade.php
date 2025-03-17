@@ -74,69 +74,70 @@
             <div class="col-xl-5">
                 <img class="bg-img-cover bg-center" src="{{ asset('backend/assets/images/login/3.jpg') }}" alt="looginpage">
             </div>
-            <div class="col-xl-7 p-0">
+            <div class="col-xl-12 p-0">
                 <div class="login-card login-dark">
-                    <div class="login-main">
+                    <div>
                         <div style="align-items: center; justify-content: center; display: flex;">
                             <a class="logo text-start" href="{{ route('admin.password.update') }}">
-                                <img class="img-fluid for-dark" src="{{ asset('frontend/assets/images/logo/Jett4-hori-logo-png.png') }}" alt="looginpage" style="height: 50px; width: 150px;">
-                                <img class="img-fluid for-light" src="{{ asset('frontend/assets/images/logo/Jett4-hori-logo-png.png') }}" alt="looginpage" style="height: 50px; width: 150px;">
+                                <img class="img-fluid for-dark" src="{{ asset('frontend/assets/images/home/vdipl-logo.webp') }}" alt="looginpage" style="height: 80px; width: 80px;">
+                                <img class="img-fluid for-light" src="{{ asset('frontend/assets/images/home/vdipl-logo.webp') }}" alt="looginpage" style="height: 80px; width: 80px;">
                             </a>
                         </div>
-                        <h4>Reset Password your account</h4>
-                        <form class="theme-form " action="{{ route('admin.password.update') }}" aria-label="{{ __('Register') }}" enctype="multipart/form">
-                            @csrf
+                        <div class="login-main">
+                            <form class="theme-form " action="{{ route('admin.password.update') }}" aria-label="{{ __('Register') }}" enctype="multipart/form">
+                                @csrf
 
-                            <input type="hidden" name="token" value="{{ $token }}">
+                                <input type="hidden" name="token" value="{{ $token }}">
 
-                            <div class="form-group">
-                                <label class="col-form-label"><b>Email Id : <span class="text-danger">*</span></b></label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus placeholder="Enter Email Id">
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-form-label"><b>Password : <span class="text-danger">*</span></b></label>
-                                <div class="form-input position-relative">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="password" placeholder="Enter Password">
-                                    @error('password')
+                                <div class="form-group">
+                                    <label class="col-form-label"><b>Email Id : <span class="text-danger">*</span></b></label>
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus placeholder="Enter Email Id">
+                                    @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="col-form-label"><b>Confirm Password : <span class="text-danger">*</span></b></label>
-                                <div class="form-input position-relative">
-                                    <input id="password_confirmation" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" autocomplete="password_confirmation" placeholder="Enter Confirm Password">
-                                    @error('password_confirmation')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                <div class="form-group">
+                                    <label class="col-form-label"><b>Password : <span class="text-danger">*</span></b></label>
+                                    <div class="form-input position-relative">
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="password" placeholder="Enter Password">
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group mb-0">
-                                <button class="btn btn-primary btn-block w-100" type="submit">
-                                    <i class="fa fa-sign-in"></i>
-                                    <b>{{ __('Reset Password') }}</b>
-                                </button>
-                            </div>
+                                <div class="form-group">
+                                    <label class="col-form-label"><b>Confirm Password : <span class="text-danger">*</span></b></label>
+                                    <div class="form-input position-relative">
+                                        <input id="password_confirmation" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" autocomplete="password_confirmation" placeholder="Enter Confirm Password">
+                                        @error('password_confirmation')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
-                            <p class="mt-4 mb-0 text-center">
-                                Already have an account?
-                                <a class="ms-2" href="{{ route('admin.login') }}">
-                                    <b>Sign In</b>
-                                </a>
-                            </p>
-                        </form>
+                                <div class="form-group mb-0">
+                                    <button class="btn btn-primary btn-block w-100" type="submit">
+                                        <i class="fa fa-sign-in"></i>
+                                        <b>{{ __('Reset Password') }}</b>
+                                    </button>
+                                </div>
+
+                                <p class="mt-4 mb-0 text-center">
+                                    Already have an account?
+                                    <a class="ms-2" href="{{ route('admin.login') }}">
+                                        <b>Sign In</b>
+                                    </a>
+                                </p>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

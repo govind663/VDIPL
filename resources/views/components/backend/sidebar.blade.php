@@ -74,7 +74,7 @@
                 {{-- Associates --}}
                 <li class="sidebar-list">
                     <i class="fa fa-thumb-tack"></i>
-                    <a class="sidebar-link sidebar-title link-nav" href="file-manager.html">
+                    <a class="sidebar-link sidebar-title link-nav {{ (Route::currentRouteName() === 'our-associates.index') || (Route::currentRouteName() === 'our-associates.create') || (Route::currentRouteName() === 'our-associates.edit') ? 'active' : '' }}" href="{{ route('our-associates.index') }}">
                         <svg class="stroke-icon">
                             <use href="{{ asset('backend/assets/svg/icon-sprite.svg#stroke-internationalization') }}"></use>
                         </svg>

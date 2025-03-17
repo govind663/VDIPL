@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    J4C Group | Add Clientele
+    J4C Group | Add Associates
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h4>Add Clientele</h4>
+                        <h4>Add Associates</h4>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -25,9 +25,9 @@
                                 </a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="{{ route('our-clientele.index') }}">Our Clientele</a>
+                                <a href="{{ route('our-associates.index') }}">Our Associates</a>
                             </li>
-                            <li class="breadcrumb-item active">Add Clientele</li>
+                            <li class="breadcrumb-item active">Add Associates</li>
                         </ol>
                     </div>
                 </div>
@@ -40,15 +40,15 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-body add-post">
-                            <form method="POST" action="{{ route('our-clientele.store') }}" class="form-horizontal" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('our-associates.store') }}" class="form-horizontal" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="pd-20 card-box mb-30">
                                     <div class="form-group row mt-3">
-                                        <label class="col-sm-2"><b>Clientele Name : <span class="text-danger">*</span></b></label>
+                                        <label class="col-sm-2"><b>Associate Name : <span class="text-danger">*</span></b></label>
                                         <div class="col-sm-4 col-md-4">
-                                            <input type="text" name="clientele_name" id="clientele_name" class="form-control @error('clientele_name') is-invalid @enderror" value="{{ old('clientele_name') }}" placeholder="Enter Clientele Name.">
-                                            @error('clientele_name')
+                                            <input type="text" name="associate_name" id="associate_name" class="form-control @error('associate_name') is-invalid @enderror" value="{{ old('associate_name') }}" placeholder="Enter Associate Name.">
+                                            @error('associate_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -76,18 +76,18 @@
                                         <table class="table table-bordered p-3" id="dynamicClienteleTable">
                                             <thead>
                                                 <tr>
-                                                    <th><b>Uploaded Clientele Image : <span class="text-danger">*</span></b></th>
+                                                    <th><b>Uploaded Associates Image : <span class="text-danger">*</span></b></th>
                                                     <th><b>Action</b></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @if(old('clientele_image'))
-                                                    @foreach(old('clientele_image') as $index => $value)
+                                                @if(old('associate_image'))
+                                                    @foreach(old('associate_image') as $index => $value)
                                                         <tr>
                                                             <td>
-                                                                <input type="file" id="clientele_image_{{ $index }}" onchange="clienteleImagePreviewFile({{ $index }})"
-                                                                    accept=".png, .jpg, .jpeg, .webp" name="clientele_image[]"
-                                                                    class="form-control @error("clientele_image.$index") is-invalid @enderror"
+                                                                <input type="file" id="associate_image_{{ $index }}" onchange="clienteleImagePreviewFile({{ $index }})"
+                                                                    accept=".png, .jpg, .jpeg, .webp" name="associate_image[]"
+                                                                    class="form-control @error("associate_image.$index") is-invalid @enderror"
                                                                     multiple>
 
                                                                 <small class="text-secondary"><b>Note: The file size should be less than 2MB.</b></small>
@@ -97,7 +97,7 @@
                                                                 <div id="preview-container-{{ $index }}" style="display: none;">
                                                                     <div id="file-preview-{{ $index }}"></div>
                                                                 </div>
-                                                                @error("clientele_image.$index")
+                                                                @error("associate_image.$index")
                                                                     <span class="invalid-feedback d-block" role="alert">
                                                                         <strong>{{ $message }}</strong>
                                                                     </span>
@@ -111,7 +111,7 @@
                                                 @else
                                                     <tr>
                                                         <td>
-                                                            <input type="file" id="clientele_image_0" onchange="clienteleImagePreviewFile(0)" accept=".png, .jpg, .jpeg, .webp" name="clientele_image[]" class="form-control @error("clientele_image") is-invalid @enderror" multiple>
+                                                            <input type="file" id="associate_image_0" onchange="clienteleImagePreviewFile(0)" accept=".png, .jpg, .jpeg, .webp" name="associate_image[]" class="form-control @error("associate_image") is-invalid @enderror" multiple >
                                                             <small class="text-secondary"><b>Note: The file size should be less than 2MB.</b></small>
                                                             <br>
                                                             <small class="text-secondary"><b>Note: Only files in .jpg, .jpeg, .png, .webp format can be uploaded.</b></small>
@@ -119,7 +119,7 @@
                                                             <div id="preview-container-0" style="display: none;">
                                                                 <div id="file-preview-0"></div>
                                                             </div>
-                                                            @error("clientele_image")
+                                                            @error("associate_image")
                                                                 <span class="invalid-feedback d-block" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
@@ -137,7 +137,7 @@
                                     <div class="form-group row mt-4">
                                         <label class="col-md-3"></label>
                                         <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                            <a href="{{ route('our-clientele.index') }}" class="btn btn-danger"><b>Cancel</b></a>&nbsp;&nbsp;
+                                            <a href="{{ route('our-associates.index') }}" class="btn btn-danger"><b>Cancel</b></a>&nbsp;&nbsp;
                                             <button type="submit" class="btn btn-success"><b>Submit</b></button>
                                         </div>
                                     </div>
@@ -160,34 +160,33 @@
 </script>
 
 <script>
-    // Add more clientele_image rows
     $(document).ready(function () {
-        let rowId = $('table#dynamicClienteleTable tbody tr').length - 1; // Get the number of existing rows
+        let rowId = $('table#dynamicClienteleTable tbody tr').length - 1; // Track last row index
 
         // Handle Laravel validation errors on page load
         @if($errors->any())
             let errors = @json($errors->toArray());
             Object.keys(errors).forEach(function (key) {
-                if (key.startsWith("clientele_image.")) {
-                    let index = key.split(".")[1]; // Extract index from "clientele_image.X"
+                if (key.startsWith("associate_image.")) {
+                    let index = key.split(".")[1]; // Extract field index
                     let errorMsg = errors[key][0];
 
-                    // Show error message inside the respective input field
-                    let inputField = $(`#clientele_image_${index}`);
-                    inputField.addClass('is-invalid');
-                    inputField.after(`<div class="invalid-feedback d-block">${errorMsg}</div>`);
+                    // Show validation error message
+                    let inputField = $(`#associate_image_${index}`);
+                    inputField.addClass('is-invalid'); // Add error class
+                    $(`#error-associate_image_${index}`).html(`<span class="text-danger">${errorMsg}</span>`); // Append error message
                 }
             });
         @endif
 
-        // Add a new row dynamically
+        // Dynamically add a new row
         $('#addClienteleRow').click(function () {
             rowId++;
             const newRow = `
                 <tr>
                     <td>
-                        <input type="file" id="clientele_image_${rowId}" onchange="clienteleImagePreviewFile(${rowId})"
-                            accept=".png, .jpg, .jpeg, .webp" name="clientele_image[]" class="form-control" multiple>
+                        <input type="file" id="associate_image_${rowId}" onchange="clienteleImagePreviewFile(${rowId})"
+                            accept=".png, .jpg, .jpeg, .webp" name="associate_image[]" class="form-control" multiple>
 
                         <small class="text-secondary"><b>Note: The file size should be less than 2MB.</b></small>
                         <br>
@@ -196,54 +195,56 @@
                         <div id="preview-container-${rowId}" style="display: none;">
                             <div id="file-preview-${rowId}"></div>
                         </div>
-                        <div class="invalid-feedback d-block" id="error-clientele_image_${rowId}"></div>
+                        <div class="invalid-feedback d-block" id="error-associate_image_${rowId}"></div>
                     </td>
                     <td>
                         <button type="button" class="btn btn-danger removeClienteleRow">Remove</button>
                     </td>
                 </tr>`;
             $('#dynamicClienteleTable tbody').append(newRow);
+
+            // Show validation error if previously failed for this index
+            @if($errors->any())
+                let errorKey = "associate_image." + rowId;
+                if (errors.hasOwnProperty(errorKey)) {
+                    let errorMsg = errors[errorKey][0];
+                    $(`#associate_image_${rowId}`).addClass('is-invalid');
+                    $(`#error-associate_image_${rowId}`).html(`<span class="text-danger">${errorMsg}</span>`);
+                }
+            @endif
         });
 
-        // Remove row dynamically
+        // Remove dynamically added rows
         $(document).on('click', '.removeClienteleRow', function () {
             $(this).closest('tr').remove();
         });
     });
 
-    // Preview clientele_image
+    // File preview function
     function clienteleImagePreviewFile(rowId) {
-        const fileInput = document.getElementById(`clientele_image_${rowId}`);
+        const fileInput = document.getElementById(`associate_image_${rowId}`);
         const previewContainer = document.getElementById(`preview-container-${rowId}`);
         const filePreview = document.getElementById(`file-preview-${rowId}`);
         const file = fileInput.files[0];
 
-        if (!fileInput || !previewContainer || !filePreview) return; // Guard clause
+        if (!fileInput || !previewContainer || !filePreview) return; // Prevent errors
 
         if (file) {
             const fileType = file.type;
             const validImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
-            const validPdfTypes = ['application/pdf'];
 
             if (validImageTypes.includes(fileType)) {
-                // Image preview
                 const reader = new FileReader();
                 reader.onload = function (e) {
                     filePreview.innerHTML = `<img src="${e.target.result}" alt="File Preview" style="width:200px; height:100px;">`;
                 };
                 reader.readAsDataURL(file);
-            } else if (validPdfTypes.includes(fileType)) {
-                // PDF preview
-                filePreview.innerHTML = `<embed src="${URL.createObjectURL(file)}" type="application/pdf" width="100%" height="100px" />`;
             } else {
-                // Unsupported file type
-                filePreview.innerHTML = '<p>Unsupported file type</p>';
-                filePreview.innerHTML += `<p>Please select a valid image or PDF file.</p>`;
+                filePreview.innerHTML = '<p class="text-danger">Invalid file format. Please upload an image.</p>';
             }
 
             previewContainer.style.display = 'block';
         } else {
-            // No file selected
             previewContainer.style.display = 'none';
         }
     }
