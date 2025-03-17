@@ -18,6 +18,7 @@ use App\Http\Controllers\backend\BannerController;
 use App\Http\Controllers\backend\ServicesController;
 use App\Http\Controllers\backend\OurClienteleController;
 use App\Http\Controllers\backend\OurAsssociatesController;
+use App\Http\Controllers\backend\AboutVdipController;
 
 Route::get('/login', function () {
     // check if the user session expire web guard then redirect to admin.login page else redirect to frontend.login page
@@ -77,6 +78,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHisto
 
     // ==== Our Associates Management
     Route::resource('our-associates', OurAsssociatesController::class);
+
+    // ==== About VDIPL Management
+    Route::resource('about-vdipl', AboutVdipController::class);
 
 });
 

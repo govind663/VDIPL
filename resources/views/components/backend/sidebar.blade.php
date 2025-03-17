@@ -36,7 +36,8 @@
                     <a class="sidebar-link  {{
                         (Route::currentRouteName() === 'admin.dashboard')
                         || (Route::currentRouteName() === 'banner.index') || (Route::currentRouteName() === 'banner.create') || (Route::currentRouteName() === 'banner.edit')
-                        || (Route::currentRouteName() === 'services.index') || (Route::currentRouteName() === 'services.create') || (Route::currentRouteName() === 'services.edit')
+                        || (Route::currentRouteName() === 'our-clientele.index') || (Route::currentRouteName() === 'our-clientele.create') || (Route::currentRouteName() === 'our-clientele.edit')
+                        || (Route::currentRouteName() === 'our-associates.index') || (Route::currentRouteName() === 'our-associates.create') || (Route::currentRouteName() === 'our-associates.edit')
                         ? 'active' : '' }} sidebar-title" href="javascript:void(0)">
 
                         <svg class="stroke-icon">
@@ -51,38 +52,83 @@
                         <li>
                             <a href="{{ route('banner.index') }}" class="{{ (Route::currentRouteName() === 'banner.index') || (Route::currentRouteName() === 'banner.create') || (Route::currentRouteName() === 'banner.edit') ? 'active' : '' }}">Banner</a>
                         </li>
+
                         <li>
+                            <a href="{{ route('our-clientele.index') }}" class="{{ (Route::currentRouteName() === 'our-clientele.index') || (Route::currentRouteName() === 'our-clientele.create') || (Route::currentRouteName() === 'our-clientele.edit') ? 'active' : '' }}">Clientele</a>
+                        </li>
+
+                        <li>
+                            <a href="{{ route('our-associates.index') }}" class="{{ (Route::currentRouteName() === 'our-associates.index') || (Route::currentRouteName() === 'our-associates.create') || (Route::currentRouteName() === 'our-associates.edit') ? 'active' : '' }}">Associates</a>
+                        </li>
+
+                        {{-- <li>
                             <a href="{{ route('services.index') }}" class="{{ (Route::currentRouteName() === 'services.index') || (Route::currentRouteName() === 'services.create') || (Route::currentRouteName() === 'services.edit') ? 'active' : '' }}">Services</a>
+                        </li> --}}
+                    </ul>
+                </li>
+
+
+                {{-- About Us --}}
+                <li class="sidebar-list">
+                    <a class="sidebar-link {{ (Route::currentRouteName() === 'about-vdipl.index') || (Route::currentRouteName() === 'about-vdipl.create') || (Route::currentRouteName() === 'about-vdipl.edit')
+                        ? 'active' : '' }} sidebar-title" href="javascript:void(0)">
+
+                        <svg class="stroke-icon">
+                            <use href="{{ asset('backend/assets/svg/icon-sprite.svg#stroke-faq') }}"></use>
+                        </svg>
+                        <svg class="fill-icon">
+                            <use href="{{ asset('backend/assets/svg/icon-sprite.svg#fill-faq') }}"></use>
+                        </svg>
+                        <span>About Us</span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a href="{{ route('about-vdipl.index') }}" class="{{ (Route::currentRouteName() === 'about-vdipl.index') || (Route::currentRouteName() === 'about-vdipl.create') || (Route::currentRouteName() === 'about-vdipl.edit') ? 'active' : '' }}">About VDIPL</a>
+                        </li>
+                        <li>
+                            <a href="#" class="">Project Statistics</a>
                         </li>
                     </ul>
                 </li>
 
-                {{-- Clientele --}}
+                {{-- Services --}}
                 <li class="sidebar-list">
-                    <i class="fa fa-thumb-tack"></i>
-                    <a class="sidebar-link sidebar-title link-nav {{ (Route::currentRouteName() === 'our-clientele.index') || (Route::currentRouteName() === 'our-clientele.create') || (Route::currentRouteName() === 'our-clientele.edit') ? 'active' : '' }}" href="{{ route('our-clientele.index') }}">
+                    <a class="sidebar-link  {{
+                        ( Route::currentRouteName() === 'services.index') || (Route::currentRouteName() === 'services.create') || (Route::currentRouteName() === 'services.edit')
+                        ? 'active' : '' }} sidebar-title" href="javascript:void(0)">
+
                         <svg class="stroke-icon">
-                            <use href="{{ asset('backend/assets/svg/icon-sprite.svg#stroke-user') }}"></use>
+                            <use href="{{ asset('backend/assets/svg/icon-sprite.svg#stroke-sample-page') }}"></use>
                         </svg>
                         <svg class="fill-icon">
-                            <use href="{{ asset('backend/assets/svg/icon-sprite.svg#fill-user') }}"></use>
+                            <use href="{{ asset('backend/assets/svg/icon-sprite.svg#fill-sample-page') }}"></use>
                         </svg>
-                        <span>Clientele</span>
+                        <span>Services</span>
                     </a>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a href="{{ route('services.index') }}" class="{{ (Route::currentRouteName() === 'services.index') || (Route::currentRouteName() === 'services.create') || (Route::currentRouteName() === 'services.edit') ? 'active' : '' }}">Manage Service</a>
+                        </li>
+                    </ul>
                 </li>
 
-                {{-- Associates --}}
+                {{-- Projects --}}
                 <li class="sidebar-list">
-                    <i class="fa fa-thumb-tack"></i>
-                    <a class="sidebar-link sidebar-title link-nav {{ (Route::currentRouteName() === 'our-associates.index') || (Route::currentRouteName() === 'our-associates.create') || (Route::currentRouteName() === 'our-associates.edit') ? 'active' : '' }}" href="{{ route('our-associates.index') }}">
+                    <a class="sidebar-link sidebar-title" href="javascript:void(0)">
+
                         <svg class="stroke-icon">
-                            <use href="{{ asset('backend/assets/svg/icon-sprite.svg#stroke-internationalization') }}"></use>
+                            <use href="{{ asset('backend/assets/svg/icon-sprite.svg#stroke-project') }}"></use>
                         </svg>
                         <svg class="fill-icon">
-                            <use href="{{ asset('backend/assets/svg/icon-sprite.svg#fill-internationalization') }}"></use>
+                            <use href="{{ asset('backend/assets/svg/icon-sprite.svg#fill-project') }}"></use>
                         </svg>
-                        <span>Associates</span>
+                        <span>Projects</span>
                     </a>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a href="#" class="">Manage Project</a>
+                        </li>
+                    </ul>
                 </li>
 
             </ul>
