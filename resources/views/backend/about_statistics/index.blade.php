@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    J4C Group | Manage Services
+    J4C Group | Manage About Statistics
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h4>Manage Services</h4>
+                        <h4>Manage About Statistics</h4>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -24,7 +24,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active">Manage Services</li>
+                            <li class="breadcrumb-item active">Manage About Statistics</li>
                         </ol>
                     </div>
                 </div>
@@ -38,13 +38,13 @@
                     <div class="card">
                         <div class="d-flex justify-content-between align-items-center p-3">
                             <div class="card-header pb-0 card-no-border">
-                                <h4>All Services List</h4>
+                                <h4>All About Statistics List</h4>
                             </div>
-                            {{-- Add Services Button --}}
-                            <a href="{{ route('services.create') }}" class="btn btn-primary">
+                            {{-- Add Our Associates Button --}}
+                            <a href="{{ route('about-statistics.create') }}" class="btn btn-primary">
                                 <b>
                                     <i class="fa fa-plus"></i>
-                                    Services
+                                    About Statistics
                                 </b>
                             </a>
                         </div>
@@ -55,44 +55,29 @@
                                     <thead>
                                         <tr>
                                             <th>Sr. No.</th>
-                                            <th>Image</th>
-                                            <th>Icon</th>
-                                            <th>Services Name</th>
-                                            <th>Status</th>
+                                            <th>Name</th>
+                                            <th>Statistics Value</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($services as $key => $value)
+                                        @foreach ($aboutStatistics as $key => $value)
                                             <tr>
                                                 <td>{{ ++$key }}</td>
 
                                                 <td class="text-wrap text-justify">
-                                                    @if($value->service_image)
-                                                        <img src="{{ asset('/j4c_Group/service/service_image/' . $value->service_image) }}" alt="Banner Image" style="width: 200px; height: 100px;">
-                                                    @endif
+                                                    {{ $value->name ?? '' }}
                                                 </td>
 
                                                 <td class="text-wrap text-justify">
-                                                    @if($value->service_icon)
-                                                        <img src="{{ asset('/j4c_Group/service/service_icon/' . $value->service_icon) }}" alt="Banner Image" style="width: 80px; height: 80px;">
-                                                    @endif
+                                                    <div style="width: 500px; overflow-wrap: break-word;">
+                                                        {{ $value->statistics_value ?? '' }}
+                                                    </div>
                                                 </td>
 
-                                                <td class="text-wrap text-justify">
-                                                    {{ $value->service_name }}
-                                                </td>
-
-                                                <td class="text-wrap text-justify">
-                                                    @if ($value->status == 1)
-                                                        <span class="badge badge-success">Active</span>
-                                                    @elseif ($value->status == 2)
-                                                        <span class="badge badge-danger">Inactive</span>
-                                                    @endif
-                                                </td>
                                                 <td>
-                                                    <a href="{{ route('services.edit', $value->id) }}">
+                                                    <a href="{{ route('about-statistics.edit', $value->id) }}">
                                                         <button class="btn btn-primary btn-sm">
                                                             <b>
                                                                 <i class="icon-pencil-alt"></i>
@@ -101,7 +86,7 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <form action="{{ route('services.destroy', $value->id) }}" method="post">
+                                                    <form action="{{ route('about-statistics.destroy', $value->id) }}" method="post">
                                                         @csrf
                                                         @method('DELETE')
                                                         <input name="_method" type="hidden" value="DELETE">

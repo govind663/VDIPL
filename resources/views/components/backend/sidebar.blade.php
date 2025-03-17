@@ -60,10 +60,6 @@
                         <li>
                             <a href="{{ route('our-associates.index') }}" class="{{ (Route::currentRouteName() === 'our-associates.index') || (Route::currentRouteName() === 'our-associates.create') || (Route::currentRouteName() === 'our-associates.edit') ? 'active' : '' }}">Associates</a>
                         </li>
-
-                        {{-- <li>
-                            <a href="{{ route('services.index') }}" class="{{ (Route::currentRouteName() === 'services.index') || (Route::currentRouteName() === 'services.create') || (Route::currentRouteName() === 'services.edit') ? 'active' : '' }}">Services</a>
-                        </li> --}}
                     </ul>
                 </li>
 
@@ -71,6 +67,7 @@
                 {{-- About Us --}}
                 <li class="sidebar-list">
                     <a class="sidebar-link {{ (Route::currentRouteName() === 'about-vdipl.index') || (Route::currentRouteName() === 'about-vdipl.create') || (Route::currentRouteName() === 'about-vdipl.edit')
+                        || (Route::currentRouteName() === 'about-statistics.index') || (Route::currentRouteName() === 'about-statistics.create') || (Route::currentRouteName() === 'about-statistics.edit')
                         ? 'active' : '' }} sidebar-title" href="javascript:void(0)">
 
                         <svg class="stroke-icon">
@@ -86,7 +83,7 @@
                             <a href="{{ route('about-vdipl.index') }}" class="{{ (Route::currentRouteName() === 'about-vdipl.index') || (Route::currentRouteName() === 'about-vdipl.create') || (Route::currentRouteName() === 'about-vdipl.edit') ? 'active' : '' }}">About VDIPL</a>
                         </li>
                         <li>
-                            <a href="#" class="">Project Statistics</a>
+                            <a href="{{ route('about-statistics.index') }}" class="{{ (Route::currentRouteName() === 'about-statistics.index') || (Route::currentRouteName() === 'about-statistics.create') || (Route::currentRouteName() === 'about-statistics.edit') ? 'active' : '' }}">Statistics</a>
                         </li>
                     </ul>
                 </li>

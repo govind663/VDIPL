@@ -64,32 +64,32 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($banners as $key => $view)
+                                        @foreach ($banners as $key => $value)
                                             <tr>
                                                 <td>{{ ++$key }}</td>
                                                 <td class="text-wrap text-justify">
-                                                    @if($view->banner_image)
-                                                        <img src="{{ asset('/j4c_Group/banner/banner_image/' . $view->banner_image) }}" alt="Banner Image" style="width: 300px; height: auto;">
+                                                    @if($value->banner_image)
+                                                        <img src="{{ asset('/j4c_Group/banner/banner_image/' . $value->banner_image) }}" alt="Banner Image" style="width: 300px; height: auto;">
                                                     @endif
                                                 </td>
 
                                                 <td class="text-wrap text-justify">
-                                                    {{ $view->banner_title }}
+                                                    {{ $value->banner_title }}
                                                 </td>
 
                                                 <td class="text-wrap text-justify">
-                                                    {{ $view->banner_subtitle }}
+                                                    {{ $value->banner_subtitle }}
                                                 </td>
 
                                                 <td class="text-wrap text-justify">
-                                                    @if ($view->status == 1)
+                                                    @if ($value->status == 1)
                                                         <span class="badge badge-success">Active</span>
-                                                    @elseif ($view->status == 2)
+                                                    @elseif ($value->status == 2)
                                                         <span class="badge badge-danger">Inactive</span>
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('banner.edit', $view->id) }}">
+                                                    <a href="{{ route('banner.edit', $value->id) }}">
                                                         <button class="btn btn-primary btn-sm">
                                                             <b>
                                                                 <i class="icon-pencil-alt"></i>
@@ -98,7 +98,7 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <form action="{{ route('banner.destroy', $view->id) }}" method="post">
+                                                    <form action="{{ route('banner.destroy', $value->id) }}" method="post">
                                                         @csrf
                                                         @method('DELETE')
                                                         <input name="_method" type="hidden" value="DELETE">

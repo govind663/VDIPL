@@ -62,22 +62,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($about_vdip as $key => $view)
+                                        @foreach ($about_vdip as $key => $value)
                                             <tr>
                                                 <td>{{ ++$key }}</td>
 
                                                 <td class="text-wrap text-justify">
-                                                    {{ $view->title ?? '' }}
+                                                    {{ $value->title ?? '' }}
                                                 </td>
 
                                                 <td class="text-wrap text-justify">
                                                     <div style="width: 500px; overflow-wrap: break-word;">
-                                                        {!! $view->description ?? '' !!}
+                                                        {!! $value->description ?? '' !!}
                                                     </div>
                                                 </td>
 
                                                 <td>
-                                                    <a href="{{ route('about-vdipl.edit', $view->id) }}">
+                                                    <a href="{{ route('about-vdipl.edit', $value->id) }}">
                                                         <button class="btn btn-primary btn-sm">
                                                             <b>
                                                                 <i class="icon-pencil-alt"></i>
@@ -86,7 +86,7 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <form action="{{ route('about-vdipl.destroy', $view->id) }}" method="post">
+                                                    <form action="{{ route('about-vdipl.destroy', $value->id) }}" method="post">
                                                         @csrf
                                                         @method('DELETE')
                                                         <input name="_method" type="hidden" value="DELETE">

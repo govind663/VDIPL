@@ -62,23 +62,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($our_asssociates as $key => $view)
+                                        @foreach ($our_asssociates as $key => $value)
                                             <tr>
                                                 <td>{{ ++$key }}</td>
 
                                                 <td class="text-wrap text-justify">
-                                                    {{ $view->associate_name ?? '' }}
+                                                    {{ $value->associate_name ?? '' }}
                                                 </td>
 
                                                 <td class="text-wrap text-justify">
-                                                    @if ($view->status == 1)
+                                                    @if ($value->status == 1)
                                                         <span class="badge badge-success">Active</span>
-                                                    @elseif ($view->status == 2)
+                                                    @elseif ($value->status == 2)
                                                         <span class="badge badge-danger">Inactive</span>
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('our-associates.edit', $view->id) }}">
+                                                    <a href="{{ route('our-associates.edit', $value->id) }}">
                                                         <button class="btn btn-primary btn-sm">
                                                             <b>
                                                                 <i class="icon-pencil-alt"></i>
@@ -87,7 +87,7 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <form action="{{ route('our-associates.destroy', $view->id) }}" method="post">
+                                                    <form action="{{ route('our-associates.destroy', $value->id) }}" method="post">
                                                         @csrf
                                                         @method('DELETE')
                                                         <input name="_method" type="hidden" value="DELETE">
